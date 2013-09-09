@@ -1,5 +1,7 @@
 class Board
 
+	
+
 	def display_my_board
 		[]
 	end

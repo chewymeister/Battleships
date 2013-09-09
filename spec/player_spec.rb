@@ -25,13 +25,23 @@ describe Player do
 		end
 	end
 
-	it 'chooses starting coordinate' do
+	it 'chooses starting coordinates' do
 		ship = double :ship
 		player.start_position.should be_a Array
 	end
 
-	it 'find consecutive vertical coordinates for ship using start' do
-		start = [1,2]
-		expect(player.vertical_coords(ship,start[0])).to
+	it 'finds consecutive vertical coordinates for ship using start' do
+		start_y = 3
+		ship_size = 4
+		expect(player.vertical_coords(ship_size,start_y)).to be [[3,4,5,6],[6,5,4,3]]
 	end
+
+	it 'finds consecutive horizontal coordinates' do
+		start_x = 'c'
+		ship_size = 4
+		expect(player.horizontal_coords(ship_size,start_x)).to be [['c','d','e','f'],['f','e','d','c']]
+	end
+
+
+
 end

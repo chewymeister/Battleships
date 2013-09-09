@@ -5,8 +5,7 @@ class Player
 
 	attr_reader :name
 	attr_accessor :board, :fleet
-	x_axis = %w(a b c d e f g h i j)
-	y_axis = [1 2 3 4 5 6 7 8 9 10]
+	
 
 	def initialize(name)
 		@name = name
@@ -31,13 +30,30 @@ class Player
 	end
 
 	def start_position
+		x_axis = %w(a b c d e f g h i j)
+		y_axis = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		x = x_axis.sample
 		y = y_axis.sample
 		start = [x,y]
 	end
 
 	def vertical_coords(ship,start_y)
-		vertical_coords = y_axis.each_cons(start_y(ship.size)
+		poss_vert_coords = []
+		x=(ship.size-2)
+		forward_coords = (start_y..x).to_a
+		backward_coords = (start_y..x).to_a.reverse
+		poss_vert_coords.push(forward_coords)
+		poss_vert_coords.push(backward_coords)
+		poss_vert_coords
+	end
+
+	def horizontal_coords(ship,start_x)
+		poss_horiz_coords = []
+		forward_coords = (start_x..(ship.size-2)).to_a
+		backward_coords = (start_x..(ship.size-2)).to_a.reverse
+		poss_horiz_coords.push(forward_coords)
+		poss_horiz_coords.push(backward_coords)
+		poss_horiz_coords
 	end
 
 

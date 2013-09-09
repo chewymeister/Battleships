@@ -25,8 +25,10 @@ describe Player do
 		end
 	end
 
-	it 'positions ship on board' do
-		fleet.position(ship)
+	it 'chooses starting coordinate' do
+		ship = double :ship
+		
+		player.start_position(ship).should be_a Array
 	end
 
 end

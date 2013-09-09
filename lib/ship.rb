@@ -14,6 +14,7 @@ class Ship
 
 	def initialize(size)
 		@size = size
+		@coordinates = {}
 	end
 
 	def floating?
